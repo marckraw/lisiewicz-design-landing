@@ -1,3 +1,5 @@
+const dotenv = require(dotenv);
+
 module.exports = {
   siteMetadata: {
     title: "Gatsby Default Starter"
@@ -6,7 +8,7 @@ module.exports = {
     {
       resolve: "gatsby-source-storyblok",
       options: {
-        accessToken: "Cfv5oHLbpkak19QudBjFwQtt",
+        accessToken: process.env.STORYBLOK_ACCESS_TOKEN,
         homeSlug: "home",
         version: process.env.NODE_ENV === "production" ? "published" : "draft"
       }
