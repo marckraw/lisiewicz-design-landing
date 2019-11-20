@@ -1,0 +1,113 @@
+// simple grid mixins
+
+@mixin col-common() {
+  position: relative;
+  max-width: 100%;
+
+  // split @include flex(0, 0, auto) into individual props
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+
+@mixin col($prefix: "") {
+  @for $i from 1 through $grid-columns {
+    &.#{$prefix}-#{$i} {
+      //@include e-col-common;
+      max-width: 100% / $grid-columns * $i;
+      flex-basis: 100% / $grid-columns * $i;
+    }
+  }
+
+  @for $i from 1 through $grid-columns {
+    &.#{$prefix}-offset-#{$i} {
+      //@include e-col-common;
+      margin-left: 100% / $grid-columns * $i;
+    }
+  }
+
+  &.#{$prefix}-y-start {
+    align-self: flex-start;
+  }
+
+  &.#{$prefix}-y-center {
+    align-self: center;
+  }
+
+  &.#{$prefix}-y-end {
+    align-self: flex-end;
+  }
+
+  &.#{$prefix}-x-start {
+    margin-right: auto;
+  }
+
+  &.#{$prefix}-x-center {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  &.#{$prefix}-x-end {
+    margin-left: auto;
+  }
+
+  &.#{$prefix}-first {
+    order: -1;
+  }
+
+  &.#{$prefix}-last {
+    order: 1;
+  }
+
+  &.#{$prefix}-shrink {
+    flex: 0 1 auto;
+  }
+
+  &.#{$prefix}-collapse {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+// simple grid classes
+
+.t-row {
+  display: flex;
+  flex: 0 1 auto;
+  flex-wrap: wrap;
+}
+
+.t-col {
+  @include col-common;
+}
+
+@each $size, $gutter in $col-gutters {
+  @include breakpoint(#{$size} only) {
+    $half-gutter: $gutter * 0.5;
+    .t-col {
+      padding-right: $half-gutter + px;
+      padding-left: $half-gutter + px;
+    }
+  }
+}
+
+@each $breakpoint, $size in $breakpoints {
+  $i: index($breakpoints, $breakpoint);
+
+  $prefix: "-" + $breakpoint;
+  @if ($size > 0) {
+    @include breakpoint($breakpoint) {
+      @include col($prefix);
+    }
+    @include breakpoint($breakpoint) {
+      &.#{$prefix}-auto {
+        max-width: 100%;
+        flex-basis: 0;
+      }
+    }
+  } @else {
+    @include col(
+      $prefix
+    ); // for initial breakpoint - in our scenario "s" for small
+  }
+}

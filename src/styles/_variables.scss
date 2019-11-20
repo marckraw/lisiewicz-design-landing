@@ -1,0 +1,52 @@
+// z index
+$smallest-z-index: 1;
+$small-z-index: 10;
+$medium-z-index: 100;
+$large-z-index: 1000;
+$largest-z-index: 10000;
+
+// spacing
+$xxxs-spacing: 0px;
+$xxs-spacing: 4px;
+$xs-spacing: 8px;
+$s-spacing: 16px;
+$l-spacing: 24px;
+$xl-spacing: 32px;
+$xll-spacing: 40px;
+$xlll-spacing: 64px;
+
+// breakpoints
+/// A list of named breakpoints. You can use these with the `breakpoint()` mixin to quickly create media queries.
+/// @type Map
+$breakpoints: (
+  xs: 0,
+  s: 320px,
+  m: 376px,
+  l: 768px,
+  xl: 1024px,
+  xxl: 1200px
+) !default;
+
+// xs only: 0 - 320px
+// s only: 320px - 375px;
+// m only: 375px - 768px;
+// l only: 768px - 1024px;
+// xl only: 1024px - 1200px;
+// xxl only: 1200px - ?;
+
+$menu-transition-time: 0.4s;
+$menu-transition: cubic-bezier(0.04, 0.04, 0.12, 0.96);
+$toggle-transition: cubic-bezier(0.5, 0.01, 0.8, 0.7);
+
+// Set the number of columns you want to use on your layout.
+$grid-columns: 12;
+
+$col-gutters: (
+  s: 16,
+  m: 16,
+  l: 24,
+  xl: 24
+);
+
+$desktop-header-height: 142px;
+$mobile-header-height: 60px;

@@ -1,0 +1,78 @@
+.t-product-card {
+  margin: 8px;
+  height: 300px;
+  background-color: $tay-white;
+  border: 1px solid $tay-gray;
+  &__image {
+    height: 250px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  // &__image:hover + &__content {
+  //     display: flex;
+  // }
+  &__content {
+    display: flex;
+    opacity: 0;
+    justify-content: center;
+    cursor: pointer;
+    align-items: center;
+    height: 50px;
+    background-color: $tay-green;
+    transition: opacity 0.4s ease-in;
+  }
+}
+
+.t-product-card:hover .t-product-card__content {
+  opacity: 1;
+}
+
+.new-product-section__grid {
+  display: grid;
+  grid-gap: 10px;
+  height: calc(100vh - 360px);
+  grid-template-columns: 22.5% 22.5% 20% 35%;
+  grid-template-rows: 2fr 1fr;
+  grid-template-areas:
+    "cam1 cam1 led1 cam2"
+    "cam3 panel1 rej1 rej1";
+
+  @include breakpoint(s down) {
+    grid-template-columns: 100%;
+    grid-template-rows: 200px;
+    grid-template-areas:
+      "cam1"
+      "led1"
+      "cam2"
+      "panel1"
+      "rej1"
+      "cam3";
+  }
+}
+
+.product-card {
+  background-color: $tay-white;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: 1px solid $tay-gray;
+
+  &.one {
+    grid-area: cam1;
+  }
+  &.two {
+    grid-area: led1;
+  }
+  &.three {
+    grid-area: cam2;
+  }
+  &.four {
+    grid-area: cam3;
+  }
+  &.five {
+    grid-area: panel1;
+  }
+  &.six {
+    grid-area: rej1;
+  }
+}

@@ -1,0 +1,52 @@
+@import "variables";
+@import "spacing";
+@import "utilities";
+@import "utils/unit"; // this is just for breakpoints
+@import "mixins/breakpoints"; // this is breakpoints mixins from Zurb foundation - this gives me @include breakpoint(s only) functionality
+@import "mixins/mixins"; // some other mixins like setRatio or so
+
+html {
+  font-size: 10px;
+  box-sizing: border-box;
+  overflow-y: scroll;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: #ffffff;
+  font-size: 1.4rem;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*:before {
+  box-sizing: inherit;
+}
+
+*:after {
+  box-sizing: inherit;
+}
+
+img {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.body {
+  margin-top: $desktop-header-height + 16px;
+  @include breakpoint(m down) {
+    margin-top: $mobile-header-height;
+  }
+}
+
+@import "utils/grid"; // things related to grid, containers, maybe some cols
+@import "utils/simple-grid";
+@import "typography";
+@import "colors";
+
+@import "components/components";

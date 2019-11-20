@@ -1,0 +1,13 @@
+//sets ratio to element, cascade parameter makes child images fluid
+@mixin setRatio($ratio: 4/3, $cascade: false) {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 100 / $ratio * 1%;
+
+    @if ($cascade) {
+        > img {
+            @include setFluid();
+        }
+    }
+}

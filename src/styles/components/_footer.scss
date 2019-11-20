@@ -1,0 +1,50 @@
+.footer {
+  width: 100%;
+  background-color: $tay-gray;
+  padding: 40px 10px 0 10px;
+
+  .--middle-column {
+    border-right: 1px solid $tay-grayer;
+    border-left: 1px solid $tay-grayer;
+  }
+
+  h2 {
+    text-transform: uppercase;
+  }
+}
+
+.footer__nav {
+  height: 100%;
+
+  h2 {
+    font-size: 30px;
+  }
+
+  div {
+    ul {
+      list-style: none;
+    }
+  }
+}
+
+.footer__shop {
+  ul {
+    list-style: none;
+  }
+}
+
+.footer__tags {
+  ul {
+    list-style: none;
+  }
+}
+
+.footer__contact {
+  height: 100%;
+}
+
+.footer__line {
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+}
