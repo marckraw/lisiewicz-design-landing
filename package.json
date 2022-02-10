@@ -17,7 +17,7 @@
     "gatsby-source-filesystem": "^2.0.4",
     "gatsby-source-storyblok": "^0.2.3",
     "gatsby-transformer-sharp": "^2.1.4",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.5.1",
     "react-click-outside": "^3.0.1",
